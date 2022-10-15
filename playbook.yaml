@@ -1,3 +1,9 @@
 ---
-- name: Import playbook
-  import_palybook: package.yaml
+- name: Install package {{ mypkg }}without dependencies of OS
+  hosts: "{{ myhost }}"
+  tasks:
+    - name: Install "{{ mypkg }}"
+      package:
+        name: "{{ mypkg }}"
+        state: "{{ mystate }}"
+      check_mode: "{{ mymode }}"
